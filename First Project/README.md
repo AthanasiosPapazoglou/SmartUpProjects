@@ -1,2 +1,2 @@
 # SmartUpProjects
-projects todo
+first project
