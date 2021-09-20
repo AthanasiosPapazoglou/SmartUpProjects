@@ -32,4 +32,13 @@ flutter:
   assets:
     - images/
 
+  fonts:
+  - family: Carattere
+    fonts:
+    - asset: fonts/Carattere-Regular.ttf
+  - family: Source Sans Pro
+    fonts: 
+    - asset: fonts/SourceSansPro-Regular.ttf
+  
+
   
