@@ -2,6 +2,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'UI_Widgets/content_fields.dart';
+import 'text_Widgets/occupation_text.dart';
+import 'text_Widgets/name_text.dart';
+import 'UI_Widgets/picture_Frame.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.blueGrey[900],
         body: SafeArea(
@@ -17,76 +22,46 @@ class MyApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                CircleAvatar(
-                  radius: 60,
-                  backgroundImage: AssetImage(
-                      'images/71037997_10206797507092583_8008849504243548160_n (1).jpg'),
-                ),
+                pictureFrame('images/profilePic.jpg'),
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'Athanasios Pap',
-                  style: TextStyle(
-                      fontFamily: 'Carattere',
-                      fontSize: 40,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                ),
+                NameText('Athanasios Pap'),
                 SizedBox(
                   height: 7,
                 ),
-                Text(
-                  'FLUTTER DEVELOPER',
-                  style: TextStyle(
-                      fontFamily: 'Source Sans Pro',
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2.8),
+                OccupationText('FLUTTER DEVELOPER'),
+                SizedBox(
+                    width: 300,
+                    height: 30,
+                    child: Divider(color: Colors.white)),
+                ContentFields(
+                  '(+30) 123 45 678 90',
+                  Icons.phone,
                 ),
-                 SizedBox(
-                  width: 300,
-                  height: 30,
-                  child: Divider(color:Colors.white)
-                  ),
-                Card(
-                    margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                    child: ListTile(
-                      leading: Icon(
-                          Icons.phone,
-                          color: Colors.blueGrey[900],
-                        ),
-                        title: Text(
-                          '      (+30) 69 555 82 140',
-                          style: TextStyle(
-                              color: Colors.blueGrey[900],
-                              fontFamily: 'Source Sans Pro',
-                              fontSize: 22),
-                        ),
-                    ),
-                  ),
-                Card(
-                  margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                  child: ListTile(
-                    leading:Icon(
-                        Icons.email,
-                        color: Colors.blueGrey[900],
-                      ),
-                      title: Text(
-                        ' athanasiospap95@gmail.com',
-                        style: TextStyle(
-                            color: Colors.blueGrey[900],
-                            fontFamily: 'Source Sans Pro',
-                            fontSize: 20),
-                      ),
-                   ),
+                ContentFields(
+                  ' athanasiospap95@gmail.com',
+                  Icons.email,
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class pictureFrame extends StatelessWidget {
+  String picPath;
+
+  pictureFrame(@required this.picPath);
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      radius: 60,
+      backgroundImage: AssetImage(picPath),
     );
   }
 }
